@@ -3,6 +3,8 @@
 // In this section, we create the page layout and structure,
 // defining how each element will be arranged and displayed.
 
+let checkBoxId = 1;
+
 let mainContainer = document.createElement('div');
 mainContainer.className = 'main-container';
 
@@ -95,21 +97,28 @@ firstForm.onsubmit = function(event) {
     // Validation part
     if(newElement.length !== 2) {
         alert("Введіть пару у форматі Name=Value! Можна вводити лише одну пару!");
+        formInput.value = '';
         return;
     }
 
-    if(!newElement[0].match(/^[A-Za-zА-Яа-я0-9]+$/)){
+    let name = newElement[0].trim();
+    let value = newElement[1].trim();
+    let newListElem = name + "=" + value;
+
+    if(!name.match(/^[A-Za-zА-Яа-я0-9]+$/) ||
+        !value.match(/^[A-Za-zА-Яа-я0-9]+$/)) {
         alert("Ключі і значення можуть містити лише цифри і букви. Інші символи заборонено!");
+        formInput.value = '';
         return;
     }
 
     // Adding to local storage
     let elementList = JSON.parse(localStorage.getItem('elemList')) || [];
-    elementList.push(formInput.value);
+    elementList.push(newListElem);
     localStorage.setItem('elemList', JSON.stringify(elementList));
 
     // Adding to UI part
-    addElement(formInput.value)
+    addElement(newListElem)
 
     // Clearing input
     formInput.value = '';
@@ -129,14 +138,16 @@ function addElement(elem){
 
     let checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
-    checkbox.id = 'item';
+    checkbox.id = String(checkBoxId);
 
     let label = document.createElement('label');
-    label.htmlFor = 'item';
+    label.htmlFor = String(checkBoxId);
     label.textContent = elem;
 
     pairDiv.append(checkbox, label);
-    viewBord.appendChild(pairDiv)
+    viewBord.appendChild(pairDiv);
+
+    ++checkBoxId;
 }
 
 // A function that is called when the 'Sort by Name' button is clicked.
