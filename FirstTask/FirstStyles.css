@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Science+Gothic:wght@100..900&display=swap');
+body {
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #a9c9fc;
+}
+
+.main-container {
+    width: 60%;
+    padding: 30px;
+    background-color: white;
+    border-radius: 20px;
+    opacity: 0.85;
+}
+
+/* ---------------------- Title styles --------------------- */
+.main-container h1 {
+    font-family: "Science Gothic", sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    margin: 0.5rem;
+}
+
+/* ------------------- Input form styles -------------------- */
+.first-form, .operations-block{
+    border: 1px lightseagreen solid;
+    border-radius: 20px;
+    padding: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.input-block {
+    flex-basis: auto;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+}
+
+.input-block label {
+    font-family: "Science Gothic", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.input-block input {
+    outline: none;
+    border: lightseagreen 1px solid;
+    border-radius: 10px;
+    height: 30px;
+    flex-basis: auto;
+    width: 90%;
+}
+
+.input-block input:focus {
+    border: #064c48 1px solid;
+}
+
+.first-form button {
+    outline: none;
+    background-color: lightseagreen;
+    border: none;
+    border-radius: 10px;
+    height: 40px;
+    flex-basis: auto;
+    width: 23%;
+    font-family: "Science Gothic", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+}
+
+/* --------------------- Operation panel styles -------------------- */
+.view-block{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-basis: auto;
+    width: 75%;
+}
+
+.view-block h2 {
+    font-family: "Science Gothic", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.view-bord {
+    box-sizing: border-box;
+    padding: 10px;
+    height: 15rem;
+    border: lightseagreen 1px solid;
+    flex-basis: auto;
+    width: 100%;
+    overflow-y: auto;
+}
+
+.operations-panel {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.operations-panel button {
+    outline: none;
+    background-color: lightseagreen;
+    border: none;
+    border-radius: 10px;
+    height: 40px;
+    width: 10rem;
+    font-family: "Science Gothic", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    color: white;
+    cursor: pointer;
+}
+
+.pair-div{
+    margin: 7px;
+}
+
+/* ----------------------- Responsive design ------------------------ */
+@media (min-width: 481px) and (max-width: 768px) {
+    .main-container {
+        height: auto;
+    }
+
+    .view-block{
+        width: 100%;
+    }
+
+    .operations-block{
+        flex-direction: column;
+    }
+
+    .operations-panel{
+        flex-direction: row;
+    }
+
+    .operations-panel{
+        margin-top: 10px;
+        padding: 0;
+        width: 100%;
+    }
+
+    .operations-panel>button{
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-container {
+        margin-top: 150px;
+        height: auto;
+    }
+
+    .first-form {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .first-form button{
+        width: 100%;
+    }
+
+    .input-block{
+        width: 100%;
+    }
+
+    .input-block input {
+        width: 100%;
+    }
+
+    .operations-block{
+        flex-direction: column;
+    }
+
+    .view-block, .operations-panel>button{
+        width: 100%;
+    }
+
+    .operations-panel{
+        margin-top: 10px;
+        padding: 0;
+        width: 100%;
+    }
+}

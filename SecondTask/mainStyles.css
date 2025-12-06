@@ -1,0 +1,61 @@
+body {
+    font-family: "Inter", sans-serif;
+    background: #f1f5f4;
+    margin: 0;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.user-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    width: 80%;
+    max-width: 850px;
+}
+
+.user-card {
+    background: linear-gradient(135deg, #20b2aa, #075751);
+    border-radius: 18px;
+    padding: 25px;
+    color: white;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.16);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.user-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 30px rgba(0,0,0,0.28);
+}
+
+.user-card h2 {
+    margin: 0 0 5px 0;
+    font-size: 26px;
+    font-weight: 800;
+}
+
+.user-card h3 {
+    margin: 0 0 20px 0;
+    font-size: 18px;
+    font-weight: 500;
+    opacity: 0.85;
+}
+
+.user-card a {
+    display: inline-block;
+    padding: 10px 18px;
+    background: white;
+    color: #075751;
+    border-radius: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.25s ease;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.user-card a:hover {
+    background: #20b2aa;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.32);
+}
