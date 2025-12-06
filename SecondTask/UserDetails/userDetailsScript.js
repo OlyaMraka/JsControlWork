@@ -31,7 +31,7 @@ fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
         let phoneValue = document.createElement("p");
         phoneValue.innerText = "Phone: " + phone;
 
-        mainInfoBlock.append(mainBlockTitle, idValue, nameValue, usernameValue, emailValue);
+        mainInfoBlock.append(mainBlockTitle, idValue, nameValue, usernameValue, emailValue, phoneValue);
 
         // ------------------------ Address Block -------------------------------
         let { street, suite, city, zipcode, geo } = address

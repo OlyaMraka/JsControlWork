@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    padding: 0;
+    padding: 20px 50px;
     background: #f3f7fb;
     font-family: "Segoe UI", Roboto, sans-serif;
     display: flex;
@@ -70,15 +70,6 @@ body {
     to {
         opacity: 1;
     }
-}
-
-body {
-    margin: 0;
-    padding: 30px;
-    background: #eef3f8;
-    font-family: "Segoe UI", Roboto, sans-serif;
-    display: flex;
-    justify-content: center;
 }
 
 /* -------------------------- Comment container -------------------------- */
