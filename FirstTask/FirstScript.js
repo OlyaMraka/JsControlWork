@@ -152,20 +152,12 @@ function addElement(elem){
 
 // A function that is called when the 'Sort by Name' button is clicked.
 function sortByName() {
-    let elemList = JSON.parse(localStorage.getItem('elemList')) || [];
-    elemList = elemList.sort((a, b) => a.split("=")[0] < b.split("=")[0] ? -1 : 1);
-    localStorage.setItem('elemList', JSON.stringify(elemList));
-    viewBord.replaceChildren();
-    printList(elemList);
+    sortBy(0);
 }
 
 // A function that is called when the 'Sort by Value' button is clicked.
 function sortByValue() {
-    let elemList = JSON.parse(localStorage.getItem('elemList')) || [];
-    elemList = elemList.sort((a, b) => a.split("=")[1] < b.split("=")[1] ? -1 : 1);
-    localStorage.setItem('elemList', JSON.stringify(elemList));
-    viewBord.replaceChildren();
-    printList(elemList);
+    sortBy(1);
 }
 
 // A function that is called when the 'Delete' button is clicked.
@@ -182,5 +174,28 @@ function deleteElement() {
         }
     }
     localStorage.setItem('elemList', JSON.stringify(elemList));
+}
+
+// Check if all elements can be converted to numbers
+function isNumeric(list) {
+    return list.every(v => v !== "" && !Number.isNaN(Number(v)));
+}
+
+// This function is for sorting by name or value.
+// Additionally, it checks whether the strings can be converted to numbers.
+// If all names or values can be converted, the sorting is performed numerically instead of as strings.
+function sortBy(index) {
+    let elemList = JSON.parse(localStorage.getItem('elemList')) || [];
+    let elems = elemList.map(elem => elem.split("=")[index])
+    if(isNumeric(elems))
+    {
+        elemList = elemList.sort((a, b) => +a.split("=")[index] - +b.split("=")[index]);
+    }
+    else{
+        elemList = elemList.sort((a, b) => a.split("=")[index] < b.split("=")[index] ? -1 : 1);
+    }
+    localStorage.setItem('elemList', JSON.stringify(elemList));
+    viewBord.replaceChildren();
+    printList(elemList);
 }
 
